@@ -1,8 +1,8 @@
-const square = ({ value }) => {
-  console.log("entered inside Square");
+const square = ({ value, changeSqr }) => {
+  console.log("entered inside Square with value and function ", value);
   return (
     <div>
-      <button type="button" className="square">
+      <button type="button" className="square" onClick={changeSqr}>
         {value}
       </button>
     </div>
