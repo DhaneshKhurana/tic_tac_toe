@@ -14,7 +14,7 @@ const Board = () => {
 
   const { sqrArr, isXNext } = gameLog[countTurn];
 
-  const gameWon = isGameWon(sqrArr);
+  const { gameWon, winPos } = isGameWon(sqrArr);
 
   //console.log("value returned by is game won ", gameWon);
 
@@ -56,7 +56,8 @@ const Board = () => {
       <Square
         value={sqrArr[pos]}
         changeSqr={() => onSquareClicked(pos)}
-      ></Square>
+        isWinSqr={winPos.includes(pos)}
+      />
     );
   }
 

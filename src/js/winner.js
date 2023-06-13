@@ -13,7 +13,13 @@ export const isGameWon = (squares) => {
   for (const [a, b, c] of winPositions) {
     //console.log("inside for loop with a, b, c, ", a, b, c);
     if (squares[a] && squares[a] === squares[b] && squares[b] === squares[c])
-      return true;
+      return {
+        gameWon: true,
+        winPos: [a, b, c],
+      };
   }
-  return false;
+  return {
+    gameWon: false,
+    winPos: [],
+  };
 };

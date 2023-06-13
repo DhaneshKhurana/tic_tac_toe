@@ -1,11 +1,15 @@
-const square = ({ value, changeSqr }) => {
+const square = ({ value, changeSqr, isWinSqr }) => {
   console.log("entered inside Square with value and function ", value);
+  const colrCls = value === "X" ? "text-green" : "text-orange";
+  const winCls = isWinSqr ? "winning" : "";
   return (
     <div>
-      <button type="button" className="square" onClick={changeSqr}>
-        <span className={value === "X" ? "text-orange" : "text-green"}>
-          {value}
-        </span>
+      <button
+        type="button"
+        className={`square ${colrCls} ${winCls}`}
+        onClick={changeSqr}
+      >
+        {value}
       </button>
     </div>
   );
