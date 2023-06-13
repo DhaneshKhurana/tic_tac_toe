@@ -1,19 +1,17 @@
 import { useState } from "react";
 import Square from "./Square";
 import { isGameWon } from "../js/winner.js";
+import GameStatus from "./GameStatus";
 
 const Board = () => {
   console.log("entered inside Board");
 
   const [sqrArr, setSqrArr] = useState(Array(9).fill(null));
   const [isXNext, setNext] = useState(false);
-  const player = isXNext ? "O" : "X";
+  const [countTurn, setCountTurn] = useState(0);
   const gameWon = isGameWon(sqrArr);
-  const statusMsg = gameWon
-    ? `${player} has won the game`
-    : `Your turn ${isXNext ? "X" : "O"}`;
 
-  console.log("value returned by is gamewon ", gameWon);
+  console.log("value returned by is game won ", gameWon);
 
   function onSquareClicked(pos) {
     if (sqrArr[pos] || gameWon) return;
@@ -26,6 +24,8 @@ const Board = () => {
     );
 
     setNext(() => !isXNext);
+
+    setCountTurn(countTurn + 1);
   }
 
   function renderSquare(pos) {
@@ -39,9 +39,13 @@ const Board = () => {
 
   return (
     <div className="board">
-      <div>
-        <h2>{statusMsg}</h2>
-      </div>
+      <>
+        <GameStatus
+          gameWon={gameWon}
+          turnsPlayed={countTurn}
+          isXNext={isXNext}
+        />
+      </>
       <div className="board-row">
         {renderSquare(0)}
         {renderSquare(1)}

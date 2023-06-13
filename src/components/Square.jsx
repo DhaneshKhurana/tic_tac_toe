@@ -3,7 +3,9 @@ const square = ({ value, changeSqr }) => {
   return (
     <div>
       <button type="button" className="square" onClick={changeSqr}>
-        {value}
+        <span className={value === "X" ? "text-orange" : "text-green"}>
+          {value}
+        </span>
       </button>
     </div>
   );
