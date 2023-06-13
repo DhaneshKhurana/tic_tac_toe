@@ -96,7 +96,7 @@ button {
     display: flex;
     flex-direction: row;
     border-bottom: 2px solid #fff;
-    &:last-child {
+    .last-row {
       border-bottom: none;
     }
     .square {
