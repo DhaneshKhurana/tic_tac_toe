@@ -5,6 +5,10 @@ import Board from "./components/Board";
 function App() {
   return (
     <div className="app">
+      <h1>
+        <span className="text-orange">Tic</span> Tac{" "}
+        <span className="text-green">Toe</span>
+      </h1>
       <div>
         <Board></Board>
       </div>

@@ -52,11 +52,14 @@ const Board = () => {
   }
 
   function renderSquare(pos) {
+    const styl =
+      pos === 2 || pos === 5 || pos === 8 ? { borderRight: "none" } : {};
     return (
       <Square
         value={sqrArr[pos]}
         changeSqr={() => onSquareClicked(pos)}
         isWinSqr={winPos.includes(pos)}
+        style={styl}
       />
     );
   }
@@ -81,12 +84,18 @@ const Board = () => {
           {renderSquare(4)}
           {renderSquare(5)}
         </div>
-        <div className="board-row last-row">
+        <div className="board-row last-row" style={{ borderBottom: "none" }}>
           {renderSquare(6)}
           {renderSquare(7)}
           {renderSquare(8)}
         </div>
-        <div>
+        <div
+          style={{
+            alignContent: "center",
+            alignItems: "center",
+            alignSelf: "center",
+          }}
+        >
           <button
             type="button"
             onClick={() => onHistoryClicked(0)}

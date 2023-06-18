@@ -107,9 +107,9 @@ button {
       padding: 0;
       overflow: hidden;
       transition: all 0.2s;
-      &:last-child {
-        border-right: none;
-      }
+      // &:last-child {
+      //   border-right: none;
+      // }
       &.winning {
         animation: scaleText 1.4s infinite;
         @keyframes scaleText {
