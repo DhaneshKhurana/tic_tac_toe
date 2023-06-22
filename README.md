@@ -50,9 +50,11 @@ Enjoy playing the Tic Tac Toe game!
 ## Technologies Used
 
 - React
+- Vite (Build Tool)
 - JavaScript
 - HTML
 - CSS
+
 
 ## License
 
